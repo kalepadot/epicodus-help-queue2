@@ -56,5 +56,27 @@ describe('ticketListReducer', () => {
         id: 2 }
     });
   });
+  test('Should successfully update a ticket', () => {
+    action = {
+      type: 'ADD_TICKET',
+      names: 'Aimen only!',
+      location: 'outterspace',
+      issue: 'Im in outterspace',
+      id: 1
+    }
+
+    expect(ticketListReducer(currentState, action)).toEqual({
+      1: {
+        names: 'Aimen only!',
+        location: 'outterspace',
+        issue: 'Im in outterspace',
+        id:1
+      },
+      2: {names: 'Jasmine and Justine',
+        location: '2a',
+        issue: 'Reducer has side effects.',
+        id: 2 }
+    })
+  })
 
 });
